@@ -1,0 +1,26 @@
+//Consulta
+db.Arbiters.find({
+    certifications: { $regex: /FIDE/
+    }
+})
+
+//Resultados
+{
+    _id: ObjectId('6738cddad781b48aeb6a15c2'),
+    referee_id: 'R1',
+    name: 'Luis Hernández',
+    experience_years: 10,
+    certifications: [
+      'FIDE Level 1',
+      'National Referee'
+    ]
+},
+{
+    _id: ObjectId('6738cddad781b48aeb6a15c3'),
+    referee_id: 'R2',
+    name: 'Maria Fernández',
+    experience_years: 5,
+    certifications: [
+      'FIDE Level 2'
+    ]
+}

@@ -1,0 +1,13 @@
+//Consulta
+db.Players.find().sort({ elo_rating: -1 }).limit(1)
+
+//Resultado
+{
+  _id: ObjectId('6738cdaed781b48aeb6a15c0'),
+  participant_id: 'P5',
+  name: 'Sergio Gómez',
+  age: 40,
+  elo_rating: 2300,
+  country: 'Spain',
+  tournaments_played: 25
+}

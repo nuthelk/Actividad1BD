@@ -1,0 +1,172 @@
+//Consulta
+
+db.Games.aggregate([
+    {
+      $facet: {
+        "asPlayer1": [
+          {
+            $group: {
+              _id: "$player1_id",
+              wins: { 
+                $sum: { $cond: [{ $eq: ["$result", "1-0"] }, 1, 0] }
+              },
+              draws: { 
+                $sum: { $cond: [{ $eq: ["$result", "0.5-0.5"] }, 1, 0] }
+              },
+              losses: { 
+                $sum: { $cond: [{ $eq: ["$result", "0-1"] }, 1, 0] }
+              }
+            }
+          }
+        ],
+        "asPlayer2": [
+          {
+            $group: {
+              _id: "$player2_id",
+              wins: { 
+                $sum: { $cond: [{ $eq: ["$result", "0-1"] }, 1, 0] }
+              },
+              draws: { 
+                $sum: { $cond: [{ $eq: ["$result", "0.5-0.5"] }, 1, 0] }
+              },
+              losses: { 
+                $sum: { $cond: [{ $eq: ["$result", "1-0"] }, 1, 0] }
+              }
+            }
+          }
+        ],
+  
+        "asPlayer3": [
+          {
+            $group: {
+              _id: "$player3_id",
+              wins: { 
+                $sum: { $cond: [{ $eq: ["$result", "0-1"] }, 1, 0] }
+              },
+              draws: { 
+                $sum: { $cond: [{ $eq: ["$result", "0.5-0.5"] }, 1, 0] }
+              },
+              losses: { 
+                $sum: { $cond: [{ $eq: ["$result", "1-0"] }, 1, 0] }
+              }
+            }
+          }
+        ],
+  
+        "asPlayer4": [
+          {
+            $group: {
+              _id: "$player4_id",
+              wins: { 
+                $sum: { $cond: [{ $eq: ["$result", "0-1"] }, 1, 0] }
+              },
+              draws: { 
+                $sum: { $cond: [{ $eq: ["$result", "0.5-0.5"] }, 1, 0] }
+              },
+              losses: { 
+                $sum: { $cond: [{ $eq: ["$result", "1-0"] }, 1, 0] }
+              }
+            }
+          }
+        ],
+  
+        "asPlayer5": [
+          {
+            $group: {
+              _id: "$player5_id",
+              wins: { 
+                $sum: { $cond: [{ $eq: ["$result", "0-1"] }, 1, 0] }
+              },
+              draws: { 
+                $sum: { $cond: [{ $eq: ["$result", "0.5-0.5"] }, 1, 0] }
+              },
+              losses: { 
+                $sum: { $cond: [{ $eq: ["$result", "1-0"] }, 1, 0] }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ])
+
+//Resultados
+
+  {
+    asPlayer1: [
+      {
+        _id: 'P1',
+        wins: 2,
+        draws: 1,
+        losses: 1
+      },
+      {
+        _id: 'P2',
+        wins: 0,
+        draws: 1,
+        losses: 2
+      },
+      {
+        _id: 'P3',
+        wins: 0,
+        draws: 0,
+        losses: 2
+      },
+      {
+        _id: 'P4',
+        wins: 0,
+        draws: 0,
+        losses: 1
+      }
+    ],
+    asPlayer2: [
+      {
+        _id: 'P2',
+        wins: 0,
+        draws: 1,
+        losses: 0
+      },
+      {
+        _id: 'P4',
+        wins: 1,
+        draws: 1,
+        losses: 1
+      },
+      {
+        _id: 'P3',
+        wins: 1,
+        draws: 0,
+        losses: 1
+      },
+      {
+        _id: 'P5',
+        wins: 4,
+        draws: 0,
+        losses: 0
+      }
+    ],
+    asPlayer3: [
+      {
+        _id: null,
+        wins: 6,
+        draws: 2,
+        losses: 2
+      }
+    ],
+    asPlayer4: [
+      {
+        _id: null,
+        wins: 6,
+        draws: 2,
+        losses: 2
+      }
+    ],
+    asPlayer5: [
+      {
+        _id: null,
+        wins: 6,
+        draws: 2,
+        losses: 2
+      }
+    ]
+  }

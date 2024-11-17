@@ -1,0 +1,84 @@
+//Consulta
+db.Standings.aggregate([
+    {
+      $lookup: {
+        from: "Players",
+        localField: "participant_id",
+        foreignField: "participant_id",
+        as: "player_details"
+        }
+    },
+    {
+      $project: {
+        position_id: 1,
+        points: 1,
+        matches_played: 1,
+        player_name: { $arrayElemAt: [
+                    "$player_details.name",
+                    0
+                ]
+            },
+        player_rating: { $arrayElemAt: [
+                    "$player_details.elo_rating",
+                    0
+                ]
+            },
+        player_country: { $arrayElemAt: [
+                    "$player_details.country",
+                    0
+                ]
+            }
+        }
+    },
+    {
+      $sort: { points: -1
+        }
+    }
+])
+
+//Resultados
+{
+    _id: ObjectId('6738d3c0d781b48aeb6a15fc'),
+    position_id: 'POS5',
+    points: 4,
+    matches_played: 4,
+    player_name: 'Sergio Gómez',
+    player_rating: 2300,
+    player_country: 'Spain'
+},
+{
+    _id: ObjectId('6738d3c0d781b48aeb6a15f8'),
+    position_id: 'POS1',
+    points: 2.5,
+    matches_played: 4,
+    player_name: 'Carlos Perez',
+    player_rating: 2100,
+    player_country: 'Colombia'
+},
+{
+    _id: ObjectId('6738d3c0d781b48aeb6a15fb'),
+    position_id: 'POS4',
+    points: 1.5,
+    matches_played: 4,
+    player_name: 'Emily Johnson',
+    player_rating: 1900,
+    player_country: 'Canada'
+},
+{
+    _id: ObjectId('6738d3c0d781b48aeb6a15f9'),
+    position_id: 'POS2',
+    points: 1,
+    matches_played: 4,
+    player_name: 'Ana Torres',
+    player_rating: 2200,
+    player_country: 'Mexico'
+},
+{
+    _id: ObjectId('6738d3c0d781b48aeb6a15fa'),
+    position_id: 'POS3',
+    points: 1,
+    matches_played: 4,
+    player_name: 'John Smith',
+    player_rating: 2000,
+    player_country: 'USA'
+}

@@ -1,0 +1,139 @@
+//Consulta
+db.Games.aggregate([
+    {
+      $match: { date: "2024-11-15" }
+    },
+    {
+      $lookup: {
+        from: "Players",
+        localField: "player1_id",
+        foreignField: "participant_id",
+        as: "player1"
+      }
+    },
+    {
+      $lookup: {
+        from: "Players",
+        localField: "player2_id",
+        foreignField: "participant_id",
+        as: "player2"
+      }
+    },
+    {
+      $lookup: {
+        from: "Arbiters",
+        localField: "referee_id",
+        foreignField: "referee_id",
+        as: "referee"
+      }
+    },
+    {
+      $project: {
+        match_id: 1,
+        date: 1,
+        result: 1,
+        "player1.name": 1,
+        "player1.elo_rating": 1,
+        "player2.name": 1,
+        "player2.elo_rating": 1,
+        "referee.name": 1
+      }
+    }
+  ])
+
+
+  //Resultados
+
+  {
+    _id: ObjectId('673a4288d781b48aeb6a164d'),
+    match_id: 'M1',
+    result: '0.5-0.5',
+    date: '2024-11-15',
+    player1: [
+      {
+        name: 'Carlos Perez',
+        elo_rating: 2100
+      }
+    ],
+    player2: [
+      {
+        name: 'Ana Torres',
+        elo_rating: 2200
+      }
+    ],
+    referee: [
+      {
+        name: 'Luis Hernández'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('673a4288d781b48aeb6a164e'),
+    match_id: 'M2',
+    result: '1-0',
+    date: '2024-11-15',
+    player1: [
+      {
+        name: 'Carlos Perez',
+        elo_rating: 2100
+      }
+    ],
+    player2: [
+      {
+        name: 'John Smith',
+        elo_rating: 2000
+      }
+    ],
+    referee: [
+      {
+        name: 'Maria Fernández'
+      }
+    ]
+  },
+
+  {
+    _id: ObjectId('673a4288d781b48aeb6a164f'),
+    match_id: 'M3',
+    result: '1-0',
+    date: '2024-11-15',
+    player1: [
+      {
+        name: 'Carlos Perez',
+        elo_rating: 2100
+      }
+    ],
+    player2: [
+      {
+        name: 'Emily Johnson',
+        elo_rating: 1900
+      }
+    ],
+    referee: [
+      {
+        name: 'Luis Hernández'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('673a4288d781b48aeb6a1650'),
+    match_id: 'M4',
+    result: '0-1',
+    date: '2024-11-15',
+    player1: [
+      {
+        name: 'Carlos Perez',
+        elo_rating: 2100
+      }
+    ],
+    player2: [
+      {
+        name: 'Sergio Gómez',
+        elo_rating: 2300
+      }
+    ],
+    referee: [
+      {
+        name: 'Maria Fernández'
+      }
+    ]
+  }

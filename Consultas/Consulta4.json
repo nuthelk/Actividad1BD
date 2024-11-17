@@ -1,0 +1,57 @@
+//Consulta
+db.Players.aggregate([
+    {
+      $group: {
+        _id: "$country",
+        num_players: { $sum: 1
+            },
+        avg_rating: { $avg: "$elo_rating"
+            },
+        max_rating: { $max: "$elo_rating"
+            },
+        min_rating: { $min: "$elo_rating"
+            }
+        }
+    },
+    {
+      $sort: { avg_rating: -1
+        }
+    }
+])
+
+//Resultado
+{
+    _id: 'Spain',
+    num_players: 1,
+    avg_rating: 2300,
+    max_rating: 2300,
+    min_rating: 2300
+},
+{
+    _id: 'Mexico',
+    num_players: 1,
+    avg_rating: 2200,
+    max_rating: 2200,
+    min_rating: 2200
+},
+{
+    _id: 'Colombia',
+    num_players: 1,
+    avg_rating: 2100,
+    max_rating: 2100,
+    min_rating: 2100
+},
+{
+    _id: 'USA',
+    num_players: 1,
+    avg_rating: 2000,
+    max_rating: 2000,
+    min_rating: 2000
+},
+{
+    _id: 'Canada',
+    num_players: 1,
+    avg_rating: 1900,
+    max_rating: 1900,
+    min_rating: 1900
+}

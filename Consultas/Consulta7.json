@@ -1,0 +1,47 @@
+//consulta
+db.Coaches.aggregate([
+    {
+      $unwind: "$students"
+    },
+    {
+      $lookup: {
+        from: "Players",
+        localField: "students",
+        foreignField: "participant_id",
+        as: "student_details"
+        }
+    },
+    {
+      $group: {
+        _id: {
+          coach_id: "$coach_id",
+          coach_name: "$name"
+            },
+        avg_student_rating: { $avg: { $arrayElemAt: [
+                        "$student_details.elo_rating",
+                        0
+                    ]
+                }
+            },
+        num_students: { $sum: 1
+            }
+        }
+    },
+    {
+      $sort: { avg_student_rating: -1
+        }
+    },
+    {
+      $limit: 1
+    }
+])
+
+//Resultado
+{
+    _id: {
+      coach_id: 'C3',
+      coach_name: 'Antonio García'
+    },
+    avg_student_rating: 2300,
+    num_students: 1
+}
