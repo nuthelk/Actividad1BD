@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "6738cdaed781b48aeb6a15bc"
+  },
+  "participant_id": "P1",
+  "name": "Carlos Perez",
+  "age": 30,
+  "elo_rating": 2100,
+  "country": "Colombia",
+  "tournaments_played": 12
+},
+{
+  "_id": {
+    "$oid": "6738cdaed781b48aeb6a15bd"
+  },
+  "participant_id": "P2",
+  "name": "Ana Torres",
+  "age": 25,
+  "elo_rating": 2200,
+  "country": "Mexico",
+  "tournaments_played": 15
+},
+{
+  "_id": {
+    "$oid": "6738cdaed781b48aeb6a15be"
+  },
+  "participant_id": "P3",
+  "name": "John Smith",
+  "age": 35,
+  "elo_rating": 2000,
+  "country": "USA",
+  "tournaments_played": 20
+},
+{
+  "_id": {
+    "$oid": "6738cdaed781b48aeb6a15bf"
+  },
+  "participant_id": "P4",
+  "name": "Emily Johnson",
+  "age": 28,
+  "elo_rating": 1900,
+  "country": "Canada",
+  "tournaments_played": 10
+},
+{
+  "_id": {
+    "$oid": "6738cdaed781b48aeb6a15c0"
+  },
+  "participant_id": "P5",
+  "name": "Sergio Gómez",
+  "age": 40,
+  "elo_rating": 2300,
+  "country": "Spain",
+  "tournaments_played": 25
+}]
