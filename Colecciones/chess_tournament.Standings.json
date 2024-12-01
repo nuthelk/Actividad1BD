@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "6738d3c0d781b48aeb6a15f8"
+  },
+  "position_id": "POS1",
+  "participant_id": "P1",
+  "points": 2.5,
+  "matches_played": 4
+},
+{
+  "_id": {
+    "$oid": "6738d3c0d781b48aeb6a15f9"
+  },
+  "position_id": "POS2",
+  "participant_id": "P2",
+  "points": 1,
+  "matches_played": 4
+},
+{
+  "_id": {
+    "$oid": "6738d3c0d781b48aeb6a15fa"
+  },
+  "position_id": "POS3",
+  "participant_id": "P3",
+  "points": 1,
+  "matches_played": 4
+},
+{
+  "_id": {
+    "$oid": "6738d3c0d781b48aeb6a15fb"
+  },
+  "position_id": "POS4",
+  "participant_id": "P4",
+  "points": 1.5,
+  "matches_played": 4
+},
+{
+  "_id": {
+    "$oid": "6738d3c0d781b48aeb6a15fc"
+  },
+  "position_id": "POS5",
+  "participant_id": "P5",
+  "points": 4,
+  "matches_played": 4
+}]

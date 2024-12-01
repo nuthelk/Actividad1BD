@@ -1,0 +1,47 @@
+[{
+  "_id": {
+    "$oid": "6738cddad781b48aeb6a15d1"
+  },
+  "coach_id": "C1",
+  "name": "Miguel Rodríguez",
+  "experience_years": 15,
+  "certifications": [
+    "FIDE Trainer",
+    "International Master"
+  ],
+  "students": [
+    "P1",
+    "P2"
+  ]
+},
+{
+  "_id": {
+    "$oid": "6738cddad781b48aeb6a15d2"
+  },
+  "coach_id": "C2",
+  "name": "Sarah Williams",
+  "experience_years": 12,
+  "certifications": [
+    "FIDE Senior Trainer",
+    "Grandmaster"
+  ],
+  "students": [
+    "P3",
+    "P4"
+  ]
+},
+{
+  "_id": {
+    "$oid": "6738cddad781b48aeb6a15d3"
+  },
+  "coach_id": "C3",
+  "name": "Antonio García",
+  "experience_years": 8,
+  "certifications": [
+    "National Coach",
+    "International Master"
+  ],
+  "students": [
+    "P5"
+  ]
+}]
